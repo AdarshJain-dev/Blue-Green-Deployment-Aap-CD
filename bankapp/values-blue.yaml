@@ -1,7 +1,7 @@
 color: blue
 
 image:
-  tag: 15
+  tag: "15"
 
 service:
   enabled: false
