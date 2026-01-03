@@ -1,7 +1,7 @@
 color: green
 
 image:
-  tag: green
+  tag: "15"
 
 service:
   activeColor: blue   # 🔵 still blue until promotion
