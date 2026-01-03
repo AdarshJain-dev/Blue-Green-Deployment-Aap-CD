@@ -4,4 +4,4 @@ image:
   tag: blue
 
 service:
-  activeColor: green
+  enabled: false
