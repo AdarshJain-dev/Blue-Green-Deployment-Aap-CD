@@ -11,3 +11,4 @@ spec:
   selector:
     app: bankapp
     version: {{ .Values.service.activeColor }}
+{{- end }}
