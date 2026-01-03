@@ -1,0 +1,7 @@
+color: green
+
+image:
+  tag: green
+
+service:
+  activeColor: blue   # 🔵 still blue until promotion

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankapp-{{ .Values.color }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: bankapp
+      version: {{ .Values.color }}
+  template:
+    metadata:
+      labels:
+        app: bankapp
+        version: {{ .Values.color }}
+    spec:
+      containers:
+      - name: bankapp
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.containerPort }}
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://{{ .Values.mysql.host }}:{{ .Values.mysql.port }}/{{ .Values.mysql.database }}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+        - name: SPRING_DATASOURCE_USERNAME
+          value: {{ .Values.mysql.username | quote }}
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: {{ .Values.mysql.password | quote }}
+        resources:
+{{ toYaml .Values.resources | indent 10 }}

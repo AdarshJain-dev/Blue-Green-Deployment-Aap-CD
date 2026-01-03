@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: adarshjain428/bankapp
+  tag: latest
+
+containerPort: 8080
+
+resources:
+  requests:
+    memory: "500Mi"
+    cpu: "500m"
+  limits:
+    memory: "1000Mi"
+    cpu: "1000m"
+
+mysql:
+  host: mysql-service
+  port: 3306
+  database: bankappdb
+  username: root
+  password: Test@123
+
+service:
+  type: LoadBalancer
+  port: 80
